@@ -2,6 +2,7 @@ from datetime import datetime
 from common.core import Model, db, encrypt_md5
 from datetime import datetime
 from uuid import uuid4
+from models.Vote import Vote
 
 
 class VOption(Model):
@@ -45,7 +46,7 @@ class VOption(Model):
         return {
             'id': self.id,
             'content':self.content,
-            'vote':self.vote
+            'vote':Vote.query.filter_by(vote_option_id=self.id).count(),
         }
 
 

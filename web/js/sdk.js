@@ -166,3 +166,37 @@ const adminUpdateVoteOption = (success, fail, id, vote) => {
 
   baseApiCall(settings, success, fail);
 };
+
+const adminDeleteVote = (success, fail, id) => {
+  const url = baseUrl + "/admin/vote/option";
+
+  const settings = {
+    url: url,
+    method: "DELETE",
+    timeout: 0,
+    headers: {
+      Authorization: Cookies.get("auth_token"),
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify({
+      vote_id: id,
+    }),
+  };
+
+  baseApiCall(settings, success, fail);
+};
+
+const adminGetVotes = (success, fail, id) => {
+  const url = baseUrl + "/admin/vote/option?vote_object_id=" + id;
+
+  const settings = {
+    url: url,
+    method: "GET",
+    timeout: 0,
+    headers: {
+      Authorization: Cookies.get("auth_token"),
+    },
+  };
+
+  baseApiCall(settings, success, fail);
+};

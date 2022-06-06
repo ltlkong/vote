@@ -32,13 +32,18 @@ getUser(
 
 let id = 0;
 
-$("#add-option-btn").click(() => {
+const addOption = (remove = false) => {
   const optionId = id;
 
   $("#vote-options").append(`
         <div class="input-group mb-3 vote-option vote-option-${optionId}">
             <input type="text" class="form-control">
-            <button class="input-group-text option-btn-${optionId} btn btn-danger" id="basic-addon1">X</button>
+            ${
+              remove
+                ? ""
+                : `
+            <button class="input-group-text option-btn-${optionId} btn btn-danger" id="basic-addon1">X</button>`
+            }
         </div>
   `);
 
@@ -47,6 +52,13 @@ $("#add-option-btn").click(() => {
   });
 
   id++;
+};
+
+addOption(true);
+addOption(true);
+
+$("#add-option-btn").click(() => {
+  addOption();
 });
 
 $("#create-vote-btn").click(() => {
@@ -94,7 +106,7 @@ const voteObjectEle = (title, content, id, username, endDate) => {
             发起人: ${username}
             </div>
             <div>截止: ${endDate}</div>
-            <a href="vote.html?id=${id}" class="btn btn-primary primary-color d-block w-100">
+            <a href="vote.html?id=${id}" class="btn btn-primary primary-color d-block w-100 vote-link" target="_blank">
               投票
             </a>
           </div>
