@@ -84,14 +84,6 @@ class VoteOptionCrudResource(BaseResource):
         return Vote.create(auth.user_id, voption.vote_object_id, voption.id)
 
 class AdminVoteOptionCrudResource(BaseResource):
-    def get(self):
-        self.parser.add_argument('vote_object_id',type=str,location='args',required=True, help='Vote is required')
-        received_data = self.parser.parse_args(strict=True)
-        
-        vobject = VObject.query.filter_by(public_id=received_data['vote_object_id']).first()
-        votes =Vote.query.filter_by(vote_object_id=vobject.id)
-
-        return list(map(lambda s: s.json(), votes))
 
 
     @auth.verify_token
@@ -127,3 +119,13 @@ class AdminVoteOptionCrudResource(BaseResource):
         
 
 
+
+class AdminVoteOptionCrudManageResource(BaseResource):
+    def post(self):
+        self.parser.add_argument('vote_object_id',type=str,location='json',required=True, help='Vote is required')
+        received_data = self.parser.parse_args(strict=True)
+        
+        vobject = VObject.query.filter_by(public_id=received_data['vote_object_id']).first()
+        votes =Vote.query.filter_by(vote_object_id=vobject.id)
+
+        return list(map(lambda s: s.json(), votes))

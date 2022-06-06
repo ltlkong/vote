@@ -187,15 +187,15 @@ const adminDeleteVote = (success, fail, id) => {
 };
 
 const adminGetVotes = (success, fail, id) => {
-  const url = baseUrl + "/admin/vote/option?vote_object_id=" + id;
+  const url = baseUrl + "/admin/vote/option/manage";
 
   const settings = {
     url: url,
-    method: "GET",
+    method: "POST",
     timeout: 0,
     headers: {
       Authorization: Cookies.get("auth_token"),
-      "Content-Type": "application/json",
+      "Content-Type": "application/json;charset=utf-8",
     },
     data: JSON.stringify({
       vote_object_id: id,

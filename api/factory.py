@@ -4,7 +4,7 @@ import logging
 import logging.config
 import json
 from flask_restful import Api
-from resources.VoteResource import VoteObjectCrudResource,VoteOptionCrudResource, AdminVoteOptionCrudResource
+from resources.VoteResource import VoteObjectCrudResource,VoteOptionCrudResource, AdminVoteOptionCrudResource,AdminVoteOptionCrudManageResource
 from resources.AuthResource import LoginResource ,RegisterResource
 from resources.UserResource import UserResource
 import os
@@ -60,5 +60,6 @@ def init_router(api: Api):
     api.add_resource(VoteObjectCrudResource, '/vote')
     api.add_resource(VoteOptionCrudResource, '/vote/option')
     api.add_resource(AdminVoteOptionCrudResource, '/admin/vote/option')
+    api.add_resource(AdminVoteOptionCrudManageResource, '/admin/vote/option/manage')
 
     
