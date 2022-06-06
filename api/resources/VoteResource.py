@@ -84,7 +84,6 @@ class VoteOptionCrudResource(BaseResource):
         return Vote.create(auth.user_id, voption.vote_object_id, voption.id)
 
 class AdminVoteOptionCrudResource(BaseResource):
-    @auth.verify_token
     def get(self):
         self.parser.add_argument('vote_object_id',type=str,location='args',required=True, help='Vote is required')
         received_data = self.parser.parse_args(strict=True)
