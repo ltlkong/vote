@@ -20,3 +20,13 @@ const showMessage = (message, status) => {
     $("#message-bar").html("");
   }, 3000);
 };
+
+$("body")
+  .append(`<div class="vh-100 vw-100 d-flex justify-content-center align-items-center position-fixed top-0 left-0" style="background-color:white;" id="loading">
+<div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div></div>`);
+
+setTimeout(() => {
+  $("#loading").remove();
+}, 1500);
