@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script src="../js/loader.js"></script>
+    <title>Vote</title>
+  </head>
+  <body class="vh-100">
+    <header
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+    >
+      <h3 class="primary-outline-color">VOTE!</h3>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/" class="nav-link px-2 link-secondary">主页</a></li>
+        <li>
+          <a href="all-votes.html" class="nav-link px-2 link-secondary"
+            >所有投票</a
+          >
+        </li>
+      </ul>
+
+      <div class="col-md-3 text-end" id="auth-container">
+        <a
+          class="btn btn-outline-primary outline-primary-color me-2"
+          href="login.html"
+          >登录
+        </a>
+        <a class="btn btn-primary primary-color" href="register.html"> 注册 </a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="vote-actions" class="mb-2">
+        <div
+          class="modal fade"
+          id="create-vote-modal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">创建</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"
+                        >标题</label
+                        >
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="create-vote-title"
+                        />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label"
+                        >内容</label
+                        >
+                        <textarea class="form-control" id="create-vote-content"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label"
+                        >截止时间</label
+                        >
+                        <input type="date" class="form-control" id="create-vote-end-date"></input>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label"
+                        >选项</label>
+                        <div id="vote-options">
+
+                        </div>
+                        <button type="button" class="btn btn-primary primary-color" id="add-option-btn">
+                            添加选项
+                        </button>
+                    </div>
+
+                </form>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+
+                >
+                  取消
+                </button>
+                <button type="button" class="btn btn-primary primary-color" id="create-vote-btn">
+                  创建
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-outline-primary primary-outline-color"
+          data-bs-toggle="modal"
+          data-bs-target="#create-vote-modal"
+        >
+          创建投票
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary primary-outline-color"
+          id="show-all"
+        >
+        全部
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary primary-outline-color"
+          id="show-my-votes-btn"
+        >
+        显示我的
+        </button>
+      </section>
+      <section class="d-flex flex-wrap" id="all-votes-container">
+      </section>
+    </main>
+  </body>
+
+  <script src="../js/jquery.js"></script>
+  <script>
+    scripts.push("home.js");
+    loadScript("../js/", scripts);
+  </script>
+</html>

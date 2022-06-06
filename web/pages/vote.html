@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script src="../js/loader.js"></script>
+    <title>Vote</title>
+  </head>
+  <body class="vh-100">
+    <div class="position-fixed top-0 left-0">
+      <a class="primary-outline-color" href="/">&larr; 主页 </a>
+    </div>
+    <main
+      class="container d-flex justify-content-center align-items-center vh-100"
+    >
+      <div class="card col-10" style="height: 50vh">
+        <div id="message-bar"></div>
+        <div class="row g-0 mb-4">
+          <div class="col-md-4 overflow-hidden">
+            <img
+              src="https://nsgeu.ca/wp-content/uploads/2021/02/vote.jpg"
+              class="img-fluid rounded-start"
+              style="height: 50vh; width: 100%"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title" id="title"></h5>
+              <p
+                class="card-text overflow-scroll"
+                style="height: 18vh"
+                id="content"
+              ></p>
+              <div
+                style="height: 12vh"
+                class="overflow-scroll"
+                id="options"
+              ></div>
+              <div class="text-end" id="action">
+                <button class="btn btn-primary primary-color" id="submit-vote">
+                  投票
+                </button>
+              </div>
+              <p class="card-text">
+                <small class="text-muted"
+                  >发起人：<span id="started-by"></span
+                ></small>
+                <small class="text-muted"
+                  >截止日期：<span id="end-date"></span
+                ></small>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-1 mb-5">
+          分享链接：<span
+            id="url"
+            class="p-1"
+            style="background-color: lightgrey"
+          ></span>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script src="../js/jquery.js"></script>
+  <script>
+    scripts.push("vote.js");
+    loadScript("../js/", scripts);
+  </script>
+</html>

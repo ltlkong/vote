@@ -1,0 +1,58 @@
+<html lang="en">
+  <!-- 页面显示英文 -->
+  <head>
+    <meta charset="UTF-8" />
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script src="../js/loader.js"></script>
+  </head>
+  <body>
+    <div class="position-fixed top-0 left-0">
+      <a class="primary-outline-color" href="/">&larr; 主页 </a>
+    </div>
+    <div class="blank"></div>
+    <div class="auth-header hover-color-secondary">欢迎登陆</div>
+    <div class="control">
+      <div class="item d-flex">
+        <div class="active login-link h-e-4 w-50 text-center">
+          <a href="#">登录</a>
+        </div>
+        <div class="register-link h-e-4 w-50 text-center">
+          <a href="register.html">注册</a>
+        </div>
+      </div>
+      <div class="px-4 pb-4 content">
+        <div id="message-bar"></div>
+        <form>
+          <p>账号</p>
+          <input type="text" placeholder="username" id="username" />
+          <p>密码</p>
+          <input
+            type="password"
+            placeholder="password"
+            class="pwd-input"
+            id="password"
+          />
+          <br />
+          <button
+            type="submit"
+            class="btn btn-primary primary-color w-100 mt-4"
+            id="login-btn"
+          >
+            登录
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="../js/jquery.js"></script>
+  <script>
+    loadScript("../js/", scripts);
+    $("#login-btn").click(() => {
+      const username = $("#username").val();
+      const password = $("#password").val();
+      const successPage = "/";
+      login(username, password, successPage);
+    });
+  </script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script src="./js/loader.js"></script>
+    <title>Vote</title>
+  </head>
+  <body class="vh-100">
+    <header
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+    >
+      <h3 class="primary-outline-color">VOTE!</h3>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/" class="nav-link px-2 link-secondary">主页</a></li>
+        <li>
+          <a href="pages/all-votes.html" class="nav-link px-2 link-secondary"
+            >所有投票</a
+          >
+        </li>
+      </ul>
+
+      <div class="col-md-3 text-end" id="auth-container">
+        <a
+          class="btn btn-outline-primary outline-primary-color me-2"
+          href="pages/login.html"
+          >登录
+        </a>
+        <a class="btn btn-primary primary-color" href="pages/register.html">
+          注册
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="d-flex justify-content-center align-items-center"
+        style="height: 50vh"
+      >
+        <div class="border border-3 px-5 py-3">
+          <h1 class="text-center primary-outline-color">VOTE!</h1>
+          <figcaption class="blockquote-footer">简单的投票系统</figcaption>
+        </div>
+      </section>
+    </main>
+  </body>
+
+  <script src="./js/jquery.js"></script>
+  <script>
+    scripts.push("home.js");
+    loadScript("./js/", scripts);
+  </script>
+</html>

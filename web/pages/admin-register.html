@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>register</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script src="../js/loader.js"></script>
+  </head>
+  <body>
+    <div class="position-fixed top-0 left-0">
+      <a class="primary-outline-color" href="/">&larr; 主页 </a>
+    </div>
+    <div class="blank2"></div>
+    <div class="hover-color-primary auth-header">欢迎注册</div>
+    <div class="control">
+      <div class="p-3">
+        <form>
+          <div id="message-bar"></div>
+          <div class="mb-3">
+            <label for="username" class="form-label">用户名</label>
+            <input type="text" class="form-control" id="username" />
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">邮箱</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">密码</label>
+            <input type="password" class="form-control" id="password" />
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Master 密码</label>
+            <input type="password" class="form-control" id="password" />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary d-block w-100 primary-color"
+            id="register-btn"
+          >
+            注册
+          </button>
+          <a href="/pages/login.html" class="text-end">&larr; 去登录 </a>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="../js/jquery.js"></script>
+  <script>
+    loadScript("../js/", scripts);
+
+    $("#register-btn").click(() => {
+      const username = $("#username").val();
+      const email = $("#email").val();
+      const password = $("#password").val();
+      const successPage = "../pages/login.html";
+      register(username, email, password, successPage, "abc");
+    });
+  </script>
+</html>
