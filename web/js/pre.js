@@ -22,7 +22,7 @@ const showMessage = (message, status) => {
 };
 
 $("body")
-  .append(`<div class="vh-100 vw-100 d-flex justify-content-center align-items-center position-fixed top-0 left-0" style="background-color:white;" id="loading">
+  .append(`<div class="vh-100 vw-100 d-flex justify-content-center align-items-center position-fixed top-0 left-0" style="background-color:white; opacity:0.4;" id="loading">
 <div class="spinner-border" role="status">
   <span class="visually-hidden">Loading...</span>
 </div></div>`);
