@@ -7,19 +7,6 @@ function baseApiCall(settings, success, fail) {
 }
 
 const register = (username, email, password, successPage, master_key) => {
-  if (password.length < 8) {
-    alert("Password must be at least 8 characters long");
-    return;
-  }
-  if (username.length < 3) {
-    alert("Username must be at least 3 characters long");
-    return;
-  }
-  if (email.length < 3) {
-    alert("Email must be valid");
-    return;
-  }
-
   const settings = {
     url: baseUrl + "/register",
     method: "POST",
