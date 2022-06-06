@@ -9,8 +9,8 @@ getUser(
       Cookies.remove("auth_token");
 
       $("#auth-container").html(`
-        <a class="btn btn-outline-primary outline-primary-color me-2" href="pages/login.html">登录</a>
-        <a class="btn btn-primary primary-color" href="pages/register.html">注册</a>
+        <a class="btn btn-outline-primary outline-primary-color me-2" href="/pages/login.html">登录</a>
+        <a class="btn btn-primary primary-color" href="/pages/register.html">注册</a>
       `);
     });
 
@@ -19,11 +19,13 @@ getUser(
             <span class="primary-color" href="#">管理员</span>
         `);
     }
+
+    $("#action-list-vote").removeClass("d-none");
   },
   () => {
     $("#auth-container").html(`
-        <a class="btn btn-outline-primary outline-primary-color me-2" href="pages/login.html">登录</a>
-        <a class="btn btn-primary primary-color" href="pages/register.html">注册</a>
+        <a class="btn btn-outline-primary outline-primary-color me-2" href="/pages/login.html">登录</a>
+        <a class="btn btn-primary primary-color" href="/pages/register.html">注册</a>
       `);
   },
 );

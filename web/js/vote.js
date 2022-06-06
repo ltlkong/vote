@@ -67,9 +67,11 @@ const refresh = (role) => {
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="option-${
           option.id
         }" ${i === 0 ? "checked" : ""} ${
-          voted.length > 0 && voted[0].option !== option.id && role !== "admin"
+          voted?.length > 0 &&
+          voted[0].option !== option.id.toString() &&
+          role !== "admin"
             ? 'disabled="disabled"'
-            : ""
+            : "checked"
         }>
         <label class="form-check-label" for="flexRadioDefault2">
         ${option.content}
@@ -92,14 +94,6 @@ const refresh = (role) => {
       $('input[type="radio"]').change(function () {
         selectedVoteId = $(this).attr("id").split("-")[1];
       });
-      const newVotes = JSON.parse(localStorage.getItem("votes")) || [];
-      localStorage.setItem(
-        "vote",
-        JSON.stringify([
-          ...newVotes,
-          { id: urlParams.get("id"), option: selectedVoteId },
-        ]),
-      );
     },
     () => {},
     null,
@@ -111,6 +105,14 @@ $("#submit-vote").click(() => {
   increaseVoteOption(
     () => {
       showMessage("Vote submitted successfully", "success");
+      const newVotes = JSON.parse(localStorage.getItem("votes")) || [];
+      localStorage.setItem(
+        "vote",
+        JSON.stringify([
+          ...newVotes,
+          { id: urlParams.get("id"), option: selectedVoteId },
+        ]),
+      );
       refresh();
     },
     () => {},
