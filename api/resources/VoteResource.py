@@ -18,7 +18,7 @@ class VoteObjectCrudResource(BaseResource):
     def get(self):
         self.parser.add_argument('username',type=str,location='args')
         self.parser.add_argument('public_id',type=str,location='args')
-        received_data = self.parser.parse_args(strict=True)
+        received_data = self.parser.parse_args()
 
         username = received_data['username']
 
@@ -41,7 +41,7 @@ class VoteObjectCrudResource(BaseResource):
         self.parser.add_argument('content',type=str,location='json',required=True, help='Content is required')
         self.parser.add_argument('end_date',type=str,location='json',required=True, help='End date is required')
 
-        received_data = self.parser.parse_args(strict=True)
+        received_data = self.parser.parse_args()
 
         content=received_data['content']
         title=received_data['title']
@@ -54,7 +54,7 @@ class VoteOptionCrudResource(BaseResource):
     def post(self):
         self.parser.add_argument('content',type=str,location='json',required=True, help='Content is required')
         self.parser.add_argument('vote_object_id',type=str,location='json',required=True, help='Vote object is required')
-        received_data = self.parser.parse_args(strict=True)
+        received_data = self.parser.parse_args()
 
         content=received_data['content']
         vote_object_id=received_data['vote_object_id']
@@ -69,7 +69,7 @@ class VoteOptionCrudResource(BaseResource):
     @auth.verify_token
     def put(self):
         self.parser.add_argument('vote_option_id',type=str,location='json',required=True, help='Vote is required')
-        received_data = self.parser.parse_args(strict=True)
+        received_data = self.parser.parse_args()
 
         vote_option_id=received_data['vote_option_id']
     
@@ -99,7 +99,7 @@ class AdminVoteOptionCrudResource(BaseResource):
     def put(self):
         self.parser.add_argument('vote_option_id',type=str,location='json',required=True, help='Vote is required')
         self.parser.add_argument('vote',type=str,location='json',required=True, help='Vote is required')
-        received_data = self.parser.parse_args(strict=True)
+        received_data = self.parser.parse_args()
 
         if auth.user.role != 'admin':
             abort(403)
@@ -114,7 +114,7 @@ class AdminVoteOptionCrudResource(BaseResource):
     @auth.verify_token
     def delete(self):
         self.parser.add_argument('vote_id',type=str,location='json',required=True, help='Vote is required')
-        received_data = self.parser.parse_args(strict=True)
+        received_data = self.parser.parse_args()
 
         if auth.user.role != 'admin':
             abort(403)
