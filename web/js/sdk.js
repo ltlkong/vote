@@ -197,6 +197,7 @@ const adminGetVotes = (success, fail, id) => {
       Authorization: Cookies.get("auth_token"),
       "Content-Type": "application/json",
     },
+    data: "{}",
   };
 
   baseApiCall(settings, success, fail);
