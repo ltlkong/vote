@@ -195,6 +195,7 @@ const adminGetVotes = (success, fail, id) => {
     timeout: 0,
     headers: {
       Authorization: Cookies.get("auth_token"),
+      "Content-Type": "application/json",
     },
   };
 
