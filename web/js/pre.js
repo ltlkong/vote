@@ -29,4 +29,4 @@ $("body")
 
 setTimeout(() => {
   $("#loading").remove();
-}, 1500);
+}, 1000);

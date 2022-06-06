@@ -45,12 +45,14 @@
   <script>
     loadScript("../js/", scripts);
 
-    $("#register-btn").click(() => {
-      const username = $("#username").val();
-      const email = $("#email").val();
-      const password = $("#password-input").val();
-      const successPage = "../pages/login.html";
-      register(username, email, password, successPage);
-    });
+    setTimeout(() => {
+      $("#register-btn").click(() => {
+        const username = $("#username").val();
+        const password = $("#password-input").val();
+        const email = $("#email").val();
+        const successPage = "/";
+        register(username, password, email, successPage);
+      });
+    }, 1000);
   </script>
 </html>

@@ -48,11 +48,13 @@
   <script src="../js/jquery.js"></script>
   <script>
     loadScript("../js/", scripts);
-    $("#login-btn").click(() => {
-      const username = $("#username").val();
-      const password = $("#password").val();
-      const successPage = "/";
-      login(username, password, successPage);
-    });
+    setTimeout(() => {
+      $("#login-btn").click(() => {
+        const username = $("#username").val();
+        const password = $("#password").val();
+        const successPage = "/";
+        login(username, password, successPage);
+      });
+    }, 1000);
   </script>
 </html>
