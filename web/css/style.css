@@ -1,11 +1,6 @@
 @import url("bootstrap.min.css");
 @import url("normalize.css");
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .hover-color-primary:hover {
   color: #00dd60;
 }
@@ -49,6 +44,7 @@
 .blank2 {
   height: 80px;
 }
+
 body {
   background: #f3f3f3;
 }
