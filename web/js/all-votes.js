@@ -3,7 +3,7 @@ let search = "";
 
 $("#search-btn").click(() => {
   search = $("#search-input").val();
-  getVoteObjectsWrap();
+  getVoteObjectsWrapWithAuth();
   $("#search-input").val("");
 });
 
