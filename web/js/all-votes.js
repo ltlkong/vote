@@ -58,6 +58,8 @@ $("#create-vote-btn").click(() => {
       $("#create-vote-content").val("");
       $("#create-vote-end-date").val("");
       $("#vote-options").html("");
+      addOption(true);
+      addOption(true);
     },
     () => {},
   );
