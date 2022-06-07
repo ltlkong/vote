@@ -37,7 +37,7 @@
 
           <div class="mb-3">
             <label for="password" class="form-label">Master 密码</label>
-            <input type="password" class="form-control" id="password" />
+            <input type="password" class="form-control" id="m-password" />
           </div>
 
           <button
@@ -56,12 +56,21 @@
   <script>
     loadScript("../js/", scripts);
 
-    $("#register-btn").click(() => {
-      const username = $("#username").val();
-      const email = $("#email").val();
-      const password = $("#password").val();
-      const successPage = "../pages/login.html";
-      register(username, email, password, successPage, "abc");
-    });
+    setTimeout(() => {
+      $("#register-btn").click(() => {
+        const username = $("#username").val();
+        const email = $("#email").val();
+        const password = $("#password").val();
+        const successPage = "../pages/login.html";
+        register(
+          username,
+          email,
+          password,
+          successPage,
+          $("#m-password").val(),
+        );
+      });
+      document.querySelector("#loading").remove();
+    }, 1000);
   </script>
 </html>
