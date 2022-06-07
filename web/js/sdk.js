@@ -204,3 +204,23 @@ const adminGetVotes = (success, fail, id) => {
 
   baseApiCall(settings, success, fail);
 };
+
+const adminDeleteVoteObject = (success, fail, id) => {
+  const url = baseUrl + "/admin/vote/option/manage";
+
+  const settings = {
+    url: url,
+    method: "DELETE",
+    timeout: 0,
+    headers: {
+      Authorization: Cookies.get("auth_token"),
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify({
+      status: "deleted",
+      id,
+    }),
+  };
+
+  baseApiCall(settings, success, fail);
+};

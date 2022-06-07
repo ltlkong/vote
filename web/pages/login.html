@@ -11,8 +11,9 @@
       <a class="primary-outline-color" href="/">&larr; 主页 </a>
     </div>
     <div class="blank"></div>
+
     <div class="auth-header hover-color-secondary">欢迎登陆</div>
-    <div class="control">
+    <div class="control col-10 col-md-6 col-xl-4 m-auto">
       <div class="item d-flex">
         <div class="active login-link h-e-4 w-50 text-center">
           <a href="#">登录</a>
@@ -48,13 +49,6 @@
   <script src="../js/jquery.js"></script>
   <script>
     loadScript("../js/", scripts);
-    setTimeout(() => {
-      $("#login-btn").click(() => {
-        const username = $("#username").val();
-        const password = $("#password").val();
-        const successPage = "/";
-        login(username, password, successPage);
-      });
-    }, 1000);
+    loadScriptDelay("../js/", ["auth.js"]);
   </script>
 </html>

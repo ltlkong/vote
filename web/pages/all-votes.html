@@ -10,7 +10,7 @@
   </head>
   <body class="vh-100">
     <header
-      class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom container"
     >
       <h3 class="primary-outline-color">VOTE!</h3>
 
@@ -21,15 +21,19 @@
             >所有投票</a
           >
         </li>
+          <li class="ms-3 pt-1">
+          <div class="input-group rounded rounded-3 overflow-hidden ">
+
+        <input 
+        class="form-control" 
+        type="text" name="q" style="max-height: 37px; font-size:16px; padding:5px 15px" value="" placeholder="搜索...." id="search-input"/>
+
+                  <button class="btn btn-primary primary-color" style="border-radius:0; padding:0 7px" id="search-btn">👍</button>
+            </div>
+        </li>
       </ul>
 
       <div class="col-md-3 text-end" id="auth-container">
-        <a
-          class="btn btn-outline-primary outline-primary-color me-2"
-          href="login.html"
-          >登录
-        </a>
-        <a class="btn btn-primary primary-color" href="register.html"> 注册 </a>
       </div>
     </header>
 
@@ -45,7 +49,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">创建</h5>
+                <h5 class="modal-title">新的投票</h5>
                 <button
                   type="button"
                   class="btn-close"
@@ -144,6 +148,6 @@
   <script src="../js/jquery.js"></script>
   <script>
     loadScript("../js/", scripts);
-    loadScriptDelay("../js/", ["home.js"]);
+    loadScriptDelay("../js/", ["auth.js","all-votes.js"]);
   </script>
 </html>

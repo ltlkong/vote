@@ -30,7 +30,7 @@ class VoteObjectCrudResource(BaseResource):
         else:
             vobjects = VObject.query
 
-        vobjects=vobjects.filter(VObject.end_date > datetime.now())
+        vobjects=vobjects.filter_by(status='active')
 
         return list(map(lambda s: s.json(), vobjects))
 
@@ -74,6 +74,11 @@ class VoteOptionCrudResource(BaseResource):
         vote_option_id=received_data['vote_option_id']
     
         voption = VOption.query.filter_by(id=int(vote_option_id)).first();
+
+        vobject = VObject.query.filter_by(id=voption.vote_object_id).filter_by(status='active').filter(VObject.end_date>datetime.now()).first()
+
+        if not vobject:
+            abort(400, message="This vote object is not active")
 
         if Vote.query.filter_by(vote_object_id=voption.vote_object_id, user_id=auth.user_id).first():
             abort(400,message='You have already voted')
@@ -121,6 +126,7 @@ class AdminVoteOptionCrudResource(BaseResource):
 
 
 class AdminVoteOptionCrudManageResource(BaseResource):
+    @auth.verify_token
     def post(self):
         self.parser.add_argument('vote_object_id',type=str,location='json',required=True, help='Vote is required')
         received_data = self.parser.parse_args(strict=True)
@@ -129,3 +135,13 @@ class AdminVoteOptionCrudManageResource(BaseResource):
         votes =Vote.query.filter_by(vote_object_id=vobject.id)
 
         return list(map(lambda s: s.json(), votes))
+    @auth.verify_token
+    def delete(self):
+        self.parser.add_argument('status',type=str,location='json',required=True, help='Status is required')
+        self.parser.add_argument('id',type=str,location='json',required=True, help='Id is required')
+
+        received_data = self.parser.parse_args()
+
+        vobject = VObject.query.filter_by(public_id=received_data['id']).first()
+
+        return vobject.update(status=received_data['status'])

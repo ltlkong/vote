@@ -16,7 +16,8 @@ function loadScriptDelay(prefix, scripts, callback) {
     if (callback) {
       callback();
     }
-  }, 1000);
+    document.querySelector("#loading").remove();
+  }, 600);
 }
 
 function loadScript(prefix, scripts, callback) {

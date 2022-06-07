@@ -26,7 +26,3 @@ $("body")
 <div class="spinner-border" role="status">
   <span class="visually-hidden">Loading...</span>
 </div></div>`);
-
-setTimeout(() => {
-  $("#loading").remove();
-}, 1000);

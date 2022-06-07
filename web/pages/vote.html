@@ -15,57 +15,59 @@
     <main
       class="container d-flex justify-content-center align-items-center vh-100"
     >
-      <div class="card col-10" style="height: 50vh">
-        <div id="message-bar"></div>
-        <div class="row g-0 mb-4">
-          <div class="col-md-4 overflow-hidden">
-            <img
-              src="https://nsgeu.ca/wp-content/uploads/2021/02/vote.jpg"
-              class="img-fluid rounded-start"
-              style="height: 50vh; width: 100%"
-              alt="..."
-            />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title" id="title"></h5>
-              <p
-                class="card-text overflow-scroll"
-                style="height: 18vh"
-                id="content"
-              ></p>
-              <div
-                style="height: 12vh"
-                class="overflow-scroll"
-                id="options"
-              ></div>
-              <div id="manage-t" class="d-none">
-                <h4>管理票数</h4>
-                <div id="manage"></div>
-              </div>
-              <div class="text-end" id="action">
-                <button class="btn btn-primary primary-color" id="submit-vote">
-                  投票
-                </button>
-              </div>
-              <p class="card-text">
-                <small class="text-muted"
-                  >发起人：<span id="started-by"></span
-                ></small>
-                <small class="text-muted"
-                  >截止日期：<span id="end-date"></span
-                ></small>
-              </p>
-            </div>
-          </div>
-        </div>
-
+      <div class="col-10">
         <div class="mt-1 mb-5">
           分享链接：<span
             id="url"
             class="p-1"
             style="background-color: lightgrey"
           ></span>
+        </div>
+        <div id="message-bar"></div>
+        <div class="card">
+          <div class="row g-0 h-100 overflow-hidden">
+            <div class="col-md-4 overflow-hidden">
+              <img
+                src="https://nsgeu.ca/wp-content/uploads/2021/02/vote.jpg"
+                class="img-fluid rounded-start"
+                style="height: 60vh; width: 100%"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8 h-100 overflow-hidden">
+              <div class="card-body">
+                <h5 class="card-title" id="title"></h5>
+                <div id="manage" class="mb-1">
+                  <p
+                    class="card-text overflow-scroll"
+                    style="height: 18vh"
+                    id="content"
+                  ></p>
+                  <div
+                    style="height: 18vh"
+                    class="overflow-scroll border border-1 border-secondary"
+                    id="options"
+                  ></div>
+                </div>
+                <div class="text-end" id="action">
+                  <button
+                    class="btn btn-primary primary-color"
+                    id="submit-vote"
+                  >
+                    投票
+                  </button>
+                </div>
+                <p class="card-text">
+                  <small class="text-muted"
+                    >发起人：<span id="started-by"></span
+                  ></small>
+                  <small class="text-muted"
+                    >截止日期：<span id="end-date"></span
+                  ></small>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>

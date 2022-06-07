@@ -10,7 +10,7 @@
   </head>
   <body class="vh-100">
     <header
-      class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom container"
     >
       <h3 class="primary-outline-color">VOTE!</h3>
 
@@ -23,16 +23,7 @@
         </li>
       </ul>
 
-      <div class="col-md-3 text-end" id="auth-container">
-        <a
-          class="btn btn-outline-primary outline-primary-color me-2"
-          href="pages/login.html"
-          >登录
-        </a>
-        <a class="btn btn-primary primary-color" href="pages/register.html">
-          注册
-        </a>
-      </div>
+      <div class="col-md-3 text-end" id="auth-container"></div>
     </header>
 
     <main>
@@ -51,6 +42,6 @@
   <script src="./js/jquery.js"></script>
   <script>
     loadScript("./js/", scripts);
-    loadScriptDelay("./js/", ["home.js"]);
+    loadScriptDelay("./js/", ["auth.js"]);
   </script>
 </html>

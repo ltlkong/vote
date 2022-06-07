@@ -359,3 +359,7 @@ a {
 a:hover {
   color: inherit;
 }
+
+* {
+  overflow-x: hidden;
+}

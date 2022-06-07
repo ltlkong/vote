@@ -36,8 +36,15 @@ getUser(
 const refresh = (role) => {
   getVoteObjects(
     (response) => {
-      const { title, content, end_date, started_at, start_by, options } =
-        response[0];
+      const {
+        title,
+        content,
+        end_date,
+        started_at,
+        start_by,
+        options,
+        is_active,
+      } = response[0];
 
       $("#title").text(title);
       $("#content").text(content);
@@ -53,13 +60,24 @@ const refresh = (role) => {
       selectedVoteId = options[0].id;
 
       let radioButtons = "";
+
+      if (!is_active) {
+        options.sort((a, b) => b.vote - a.vote);
+        radioButtons += "<div>最终票数</div>";
+        $("#submit-vote").addClass("disabled");
+      }
+
       options.forEach((option, i) => {
         radioButtons += `
         <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="option-${
-          option.id
-        }" ${i === 0 ? "checked" : ""} 
-        >
+        ${
+          is_active
+            ? `
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="option-${
+              option.id
+            }" ${i === 0 ? "checked" : ""}/>`
+            : `<span>${option.vote}</span>`
+        }
         <label class="form-check-label" for="flexRadioDefault2">
         ${option.content}
         </label>
@@ -86,10 +104,10 @@ const refresh = (role) => {
   if (role === "admin") {
     adminGetVotes(
       (response) => {
-        let votes = "";
+        let votes = `<div> 总票数: ${response.length}  </div>`;
         response.forEach((vote) => {
-          votes += `<div class="d-flex justify-content-between border border-1 border-warning vote-ticket vote-ticket-${vote.id}">
-            <div>${vote.user}</div>
+          votes += `<div class=" d-flex justify-content-between border border-1 border-warning vote-ticket vote-ticket-${vote.id}">
+            <div > 投票人: ${vote.user}</div>
             <div>${vote.option}</div>
             <button class='btn btn-danger delete-vote' data-id="${vote.id}">X</button>
             

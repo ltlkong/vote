@@ -36,6 +36,18 @@ class VObject(Model):
             return False
 
         return vobject.public_id
+    
+    def update(self,status):
+        if status:
+            self.status=status
+        try:
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            return False
+        
+        return True
+        
 
     def json(self):
         return {
@@ -46,6 +58,7 @@ class VObject(Model):
             'started_at':str(self.created_at),
             'options': list(map(lambda s: s.json(), VOption.query.filter_by(vote_object_id=self.id))),
             'start_by':User.query.filter_by(id=self.user_id).first().username,
+            'is_active':self.status=='active' and self.end_date>datetime.now()
         }
 
 
